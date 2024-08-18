@@ -1,0 +1,10 @@
+/node_modules/
+/test-results/
+/playwright-report/
+/playwright/
+/playwright/.cache/
+/playwright/.auth/
+/test-html-report/
+/.env
+tests-results.json
+*.log

@@ -1,0 +1,17 @@
+{
+  "exclude": ["./node_modules/", "./tests/load/", "./test-html-report/"],
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": "./",
+    "declaration": true,
+    "target": "esNext",
+    "strict": true,
+    "module": "commonjs",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "useUnknownInCatchVariables": false,
+    "typeRoots": ["./node_modules/@types"]
+  }
+}

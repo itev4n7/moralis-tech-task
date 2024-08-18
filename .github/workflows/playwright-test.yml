@@ -1,0 +1,53 @@
+name: Run Single Spec
+run-name: Run spec - ${{ inputs.specName }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      specName:
+        type: string
+        required: true
+        description: Type the spec name
+
+jobs:
+  run_spec:
+    name: Run tests in selected spec
+    runs-on: [self-hosted, ubuntu-2004]
+    container:
+      image: mcr.microsoft.com/playwright:v1.46.0-jammy
+      options: --ipc=host
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 'latest'
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: bun i
+      - name: Install playwright browser
+        run: bun playwright install chromium
+      - name: Auth setup
+        run: bun run setup-auth
+      - name: Run tests
+        run: bun playwright test ${{ github.event.inputs.specName }} --config playwright.config.ts --no-deps
+        env:
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+          ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spec-report
+          path: test-html-report/
+          retention-days: 5
+      - name: Adding note
+        if: always()
+        run: |
+          echo 'To check the report open an index.html from the spec-report artifact' >> $GITHUB_STEP_SUMMARY
+          echo 'To debug tests rop .zip trace file into the [Playwright Trace Viewer](https://trace.playwright.dev/).' >> $GITHUB_STEP_SUMMARY
