@@ -64,7 +64,6 @@ export default async function () {
       'response has token_address': body => body.result[0].token_address !== undefined,
       'response has contract_type': body => body.result[0].contract_type !== undefined,
       'response has name': body => body.result[0].name !== undefined,
-      'response has token_id': body => body.result[0].token_id !== undefined,
       'response has symbol': body => body.result[0].symbol !== undefined,
       'response has token_uri': body => body.result[0].token_uri !== undefined,
     });

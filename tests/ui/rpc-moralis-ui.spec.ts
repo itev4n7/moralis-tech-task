@@ -2,7 +2,7 @@
 import { test, expect } from 'common/fixtures';
 import { PROTOCOL_NETWORKS, PROTOCOLS } from 'common/constants';
 
-test.describe.only('RPC Moralis Node', { tag: '@ui' }, () => {
+test.describe('RPC Moralis Node', { tag: '@ui' }, () => {
   test.use({ storageState: 'playwright/.auth/user.json' });
 
   test.beforeEach(async function ({ moralisAdminApp }) {

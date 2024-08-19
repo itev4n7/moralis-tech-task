@@ -8,7 +8,7 @@ const ethTestnetRPCNodeData = {
   network: PROTOCOL_NETWORKS[PROTOCOLS.ethereum].sepolia,
 };
 
-test.describe.only('RPC Node API calls', { tag: '@api' }, () => {
+test.describe('RPC Node API calls', { tag: '@api' }, () => {
   test.use({ storageState: 'playwright/.auth/user.json' });
   let rpcNodeURL: string;
 
@@ -38,7 +38,7 @@ test.describe.only('RPC Node API calls', { tag: '@api' }, () => {
   });
 
   test.fail('POST eth_blockNumber 400 with missing required fields', async function ({ request }) {
-    let options = {
+    const options = {
       headers: {
         accept: 'application/json',
         'content-type': 'application/json',
@@ -62,7 +62,7 @@ test.describe.only('RPC Node API calls', { tag: '@api' }, () => {
     expect(response.status()).toEqual(HTTP_STATUSES.unauthorized_401);
   });
 
-  test('POST eth_getBlockByNumber 200 by block number', async function ({ request, moralisAdminApp }) {
+  test('POST eth_getBlockByNumber 200 by block number', async function ({ request }) {
     const getBlockOptions = await getHeadersAndBodyForNodeAPI(MORALIS_NODE_API_REQUEST.ethBlockNumber);
     const getBlockResponse = await request.post(rpcNodeURL, getBlockOptions);
     expect(getBlockResponse.status()).toEqual(HTTP_STATUSES.ok_200);

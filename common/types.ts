@@ -28,7 +28,7 @@ export type NodeAPIMetadata = {
   organizationId: string;
   chainId: string;
   status: string;
-  [key: string]: any;
+  [key: string]: string | number;
 };
 
 export type MoralisAPITokens = {

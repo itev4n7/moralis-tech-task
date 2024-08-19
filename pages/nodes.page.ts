@@ -128,7 +128,7 @@ export class NodesPage extends NodesLocators {
       await this.nodeExpandButtonByNetworkName(protocol).click();
       logger.debug(`The "${protocol}" protocol is expanded`);
     }
-    let nodeURLArray: string[] = [];
+    const nodeURLArray: string[] = [];
     if ((await this.siteOneURLInput.count()) > 1) {
       for (const siteOneURL of await this.siteOneURLInput.all()) {
         const siteURL = await siteOneURL.getAttribute(HTML_ATTRIBUTES.value);
@@ -147,7 +147,7 @@ export class NodesPage extends NodesLocators {
       await this.nodeExpandButtonByNetworkName(protocol).click();
       logger.debug(`The "${protocol}" protocol is expanded`);
     }
-    let nodeURLArray: string[] = [];
+    const nodeURLArray: string[] = [];
     if ((await this.siteTwoURLInput.count()) > 1) {
       for (const siteTwoURL of await this.siteTwoURLInput.all()) {
         const siteURL = await siteTwoURL.getAttribute(HTML_ATTRIBUTES.value);

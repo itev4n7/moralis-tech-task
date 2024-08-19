@@ -25,11 +25,11 @@ export class NodesAPIService extends BaseService {
     const response = await this.request.get(`${API_DASHBOARD_BASE_URL}/project/nodes/`, options);
     if (response.ok()) {
       const data = await response.json();
-      logger.debug(`Succesfully get nodes data: %o`, data);
+      logger.debug('Succesfully get nodes data: %o', data);
       return data;
     } else {
       logger.error(`Failed to get node IDs. Status: ${response.status()}`);
-      throw new Error(`Failed to get node IDs!`);
+      throw new Error('Failed to get node IDs!');
     }
   }
 
@@ -51,7 +51,7 @@ export class NodesAPIService extends BaseService {
       }
     } catch (e) {
       if (e.message.includes('Failed to get node IDs!')) {
-        logger.info(`No RPC nodes found to delete`);
+        logger.info('No RPC nodes found to delete');
       }
     }
   }
