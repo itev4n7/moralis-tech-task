@@ -3,7 +3,6 @@ import { verifyHeadersHasNoSensitiveData } from 'common/api-utils';
 import { HTTP_STATUSES } from 'common/constants';
 import { test, expect } from 'common/fixtures';
 import { getMoralisAPIKeyFromJson } from 'common/utils';
-import { logger } from 'loggers/logger';
 
 const WALLET_ADDRESS = '0x9659Bd1c6E89f9fd77d62e93a2192b97452bA823';
 
@@ -56,7 +55,7 @@ test.describe('Moralis NFT API calls', { tag: '@api' }, () => {
     const data = await response.json();
     expect(response.status()).toEqual(HTTP_STATUSES.badRequest_400);
     await verifyHeadersHasNoSensitiveData(headers);
-    expect(data.message).toEqual(`address with value '${invalidWalletAddress}' is not a valid hex address"`);
+    expect(data.message).toEqual(`address with value '${invalidWalletAddress}' is not a valid hex address`);
   });
 
   test('GET `Get NFTs by wallet` 401 with invalid moralis API token', async function ({ request }) {
@@ -76,7 +75,6 @@ test.describe('Moralis NFT API calls', { tag: '@api' }, () => {
     const response = await request.get(url, options);
     const headers = response.headers();
     const data = await response.json();
-    logger.info(JSON.stringify(data));
     expect(response.status()).toEqual(HTTP_STATUSES.unauthorized_401);
     await verifyHeadersHasNoSensitiveData(headers);
     expect(data.message).toEqual('Token is invalid format');
