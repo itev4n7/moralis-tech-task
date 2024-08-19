@@ -43,7 +43,7 @@ This project is a technical task designed to demonstrate the implementation of *
 
 ### Running Tests
 
-- **Setup Playwright:**
+- **Setup Authentication:**
 
   - Run the setup script to login and retrieve an auth token:
     ```bash
@@ -52,25 +52,25 @@ This project is a technical task designed to demonstrate the implementation of *
 
 - **UI Playwright tests:**
 
-  - Run the UI tests using Playwright (before execusion you need to run `Setup Playwright` script):
+  - Run the UI tests using Playwright (before first execusion you need to run `setup-auth` script):
     ```bash
     bun run test-ui
     ```
-  - Run the E2E tests using Playwright (before execusion you need to run `Setup Playwright` script):
+  - Run the E2E tests using Playwright (before first execusion you need to run `setup-auth` script):
     ```bash
     bun run test-e2e
     ```
 
 - **API Playwright tests:**
 
-  - Run the UI tests using Playwright (before execusion you need to run `Setup Playwright` script):
+  - Run the UI tests using Playwright (before first execusion you need to run `setup-auth` script):
     ```bash
     bun run test-api
     ```
 
 - **Run Load Tests with K6:**
 
-  - Execute the load tests using K6 (before execusion you need to run `Setup Playwright` script):
+  - Execute the load tests using K6 (before first execusion you need to run `setup-auth` script):
     ```bash
     bun run test-k6-load
     ```
