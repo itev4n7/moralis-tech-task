@@ -6,6 +6,7 @@
   "description": "The test framework as a sample and task for moralis admin app",
   "scripts": {
     "html-report": "bun playwright show-report test-html-report",
+    "prepare": "husky",
     "lint": "eslint ./",
     "lint-fix": "eslint --fix ./",
     "pw-debug-mode": "yarn playwright test --debug",
