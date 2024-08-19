@@ -9,6 +9,7 @@ This project is a technical task designed to demonstrate the implementation of *
 - **Authentication:** Utilize UI authentication to save session cookies, significantly reducing the time required to authenticate into the Moralis Admin app and enabling efficient UI and API interactions.
 - **UI & API Tesing integration:** Playwright is used to automate testing scenarios, including UI authentication, functional and end-to-end (E2E) tests, as well as API response validation.
 - **Load Testing integration:** Utilizes K6 for load testing, to test performance under various traffic conditions.
+- **Pre Commit Verification:** Ensures code quality by automatically running linting checks on your code before each commit using Husky.
 
 ## Test Framework Structure
 
