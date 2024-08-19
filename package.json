@@ -14,7 +14,7 @@
     "test-e2e": "bun playwright test --grep @e2e",
     "test-ui": "bun playwright test --grep @ui",
     "test-api": "bun playwright test --grep @api",
-    "test-k6-load": "k6 run --compatibility-mode=base ./tests/load/k6-moralis-wallet-api.js"
+    "test-k6-load": "k6 run --compatibility-mode=extended ./tests/load/k6-moralis-wallet-api.js"
   },
   "dependencies": {
     "@playwright/test": "1.46.1",
